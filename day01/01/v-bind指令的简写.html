@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="fn1">按钮</button>
+      <img :src="imgSrc" :alt="imgAlt" :title="imgTitle" />
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          imgSrc: './00.gif',
+          imgTitle: '标题',
+          imgAlt: '提示',
+        },
+        methods: {
+          fn1() {
+            this.imgSrc = './01.jpg'
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

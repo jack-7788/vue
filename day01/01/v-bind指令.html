@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="btnFn">按钮</button>
+      <img v-bind:src="imgSrc" v-bind:alt="imgAlt" v-bind:title="imgTitle" />
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          imgSrc: './01.jpg',
+          imgTitle: '一只狗',
+          imgAlt: '图破了',
+        },
+        methods: {
+          btnFn() {
+            console.log(this === vm)
+            this.imgSrc = './00.gif'
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

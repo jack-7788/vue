@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <div id="app">
+    <h1 v-html="msg">哈哈</h1>
+    <h2 v-text="msg">哈哈</h2>
+  </div>
+  <body>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: '<h1>洗洗</h1>',
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2 v-cloak>{{name}}</h2>
+      <h2 v-cloak>{{age +2}}</h2>
+      <h1 v-cloak v-if="score>90">90以上，优秀</h1>
+      <h1 v-cloak v-else-if="score > 80">90以下，良好</h1>
+      <h1 v-cloak v-else-if="score > 70">80以下，一般</h1>
+      <h1 v-cloak v-else-if="score > 60">70以下，及格</h1>
+      <h1 v-cloak v-else>60以下，不及格</h1>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          name: 'zs',
+          age: 18,
+          score: 59,
+        },
+      })
+    </script>
+  </body>
+</html>

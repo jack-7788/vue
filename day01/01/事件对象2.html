@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .father {
+        height: 300px;
+        width: 300px;
+        background-color: pink;
+        text-align: center;
+        line-height: 300px;
+      }
+      a {
+        background-color: lime;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="father" v-on:click="fatherFn">
+        <a v-on:click="sonFn($event)" href="http://www.baidu.com">百度一下</a>
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+          fatherFn() {
+            alert('father')
+          },
+          sonFn(e) {
+            e.stopPropagation()
+            e.preventDefault()
+            alert('son')
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

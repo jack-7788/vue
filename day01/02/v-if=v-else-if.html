@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{name}}</h1>
+      <h2 v-if="age <= 10">00</h2>
+      <h2 v-else-if="age <= 20">10</h2>
+      <h2 v-else>20</h2>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          name: 'zs',
+          age: 18,
+        },
+      })
+    </script>
+  </body>
+</html>
