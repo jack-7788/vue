@@ -7,21 +7,19 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="fn">点击事件</button>
-      <button v-on:mouseenter="fn1">鼠标移入事件</button>
+      <p>{{data1 | time('YYYY年MM月DD日 HH:mm:ss' ) }}</p>
     </div>
-
     <script src="./vue.js"></script>
+    <script src="./moment.js"></script>
     <script>
+      Vue.filter('time', function (value, str) {
+        return moment(value).format(str)
+      })
       const vm = new Vue({
         el: '#app',
-        methods: {
-          fn() {
-            alert('鼠标点击')
-          },
-          fn1() {
-            alert('鼠标移入了')
-          },
+        data: {
+          date1: 1601348075835,
+          date2: 1301348075835,
         },
       })
     </script>

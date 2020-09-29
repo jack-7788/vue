@@ -7,23 +7,18 @@
   </head>
   <body>
     <div id="app">
-      <button @click="fn">按钮1</button>
-      <button v-on:click="fn">按钮2</button>
-      <h1 v-if="isShow">我是if</h1>
-      <h1 v-show="isShow">我是show</h1>
+      <p>{{ userName }}</p>
+      <p>{{ password }}</p>
+      用户名：<input type="text" v-model="userName" /><br />
+      密码：<input type="password" v-model="password" />
     </div>
     <script src="./vue.js"></script>
     <script>
       const vm = new Vue({
         el: '#app',
         data: {
-          msg: 'hello vue',
-          isShow: true,
-        },
-        methods: {
-          fn() {
-            this.isShow = !this.isShow
-          },
+          userName: 'jack',
+          password: '',
         },
       })
     </script>

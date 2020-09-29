@@ -7,20 +7,30 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{name}}</h1>
-      <h2>{{age}}</h2>
-      <h3>{{age + 2}}</h3>
-      <h3>{{1 + 2}}</h3>
-      <h4>{{ age > 18 ? '成年':'未成年'}}</h4>
+      <input type="text" v-focus v-model="msg" />
+      <p v-text="msg"></p>
+      <hr />
+      <p>{{ msg }}</p>
+      <p v-red>{{ msg }}</p>
     </div>
     <script src="./vue.js"></script>
     <script>
+      /*  Vue.directive('focus', {
+        inserted(el) {
+          el.focus()
+        },
+      }) */
       const vm = new Vue({
         el: '#app',
         data: {
           msg: 'hello',
-          name: 'zs',
-          age: 18,
+        },
+        directives: {
+          red: {
+            inserted(el) {
+              el.style.color = 'red'
+            },
+          },
         },
       })
     </script>

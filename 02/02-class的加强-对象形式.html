@@ -4,24 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      p {
+        height: 300px;
+        width: 300px;
+        background-color: pink;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <button @click="fn1">按钮</button>
-      <img :src="imgSrc" :alt="imgAlt" :title="imgTitle" />
+      <button @click.prevent="fn1">按钮</button>
+      <p :class="{red:isRed}"></p>
     </div>
     <script src="./vue.js"></script>
     <script>
       const vm = new Vue({
         el: '#app',
         data: {
-          imgSrc: './00.gif',
-          imgTitle: '标题',
-          imgAlt: '提示',
+          isRed: true,
         },
         methods: {
           fn1() {
-            this.imgSrc = './01.jpg'
+            console.log(1)
+            this.isRed = !this.isRed
           },
         },
       })

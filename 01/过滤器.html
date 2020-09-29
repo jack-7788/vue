@@ -7,18 +7,17 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{name}}</h1>
-      <h2 v-if="age <= 10">00</h2>
-      <h2 v-else-if="age <= 20">10</h2>
-      <h2 v-else>20</h2>
+      <p>{{msg1 | upper}}</p>
     </div>
     <script src="./vue.js"></script>
     <script>
+      Vue.filter('upper', function (value) {
+        return value.split('').reverse().join('')
+      })
       const vm = new Vue({
         el: '#app',
         data: {
-          name: 'zs',
-          age: 18,
+          msg1: 'hello vue',
         },
       })
     </script>

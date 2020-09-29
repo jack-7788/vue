@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" />
+      <input type="text" />
+      <input type="text" v-focus />
+      <input type="text" />
+      <input type="text" v-blue />
+      <input type="text" v-red />
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      Vue.directive('focus', {
+        inserted(el) {
+          console.log(111)
+          el.focus()
+        },
+      })
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello',
+        },
+        directives: {
+          red: {
+            inserted(el) {
+              el.style.backgroundColor = 'red'
+            },
+          },
+          blue: {
+            inserted(el) {
+              el.style.backgroundColor = 'blue'
+            },
+          },
+        },
+      })
+    </script>
+    <script></script>
+  </body>
+</html>

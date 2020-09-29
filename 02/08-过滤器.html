@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{msg | upper}}</p>
+      <p>{{msg | lower}}</p>
+      <p>{{msg | Up}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      Vue.filter('upper', function (value) {
+        return value.toUpperCase()
+      })
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'HELLo',
+        },
+        filters: {
+          lower(value) {
+            return value.toLowerCase()
+          },
+          Up(value) {
+            return value[0].toUpperCase() + value.slice(1).toLowerCase()
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

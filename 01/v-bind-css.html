@@ -5,38 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .father {
+      .box {
         height: 300px;
         width: 300px;
         background-color: pink;
-        text-align: center;
-        line-height: 300px;
+        margin: 10px;
       }
-      a {
-        background-color: lime;
+      .red {
+        background-color: red;
+      }
+      .big {
+        height: 500px;
+        width: 500px;
       }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="father" v-on:click="fatherFn">
-        <a v-on:click="sonFn($event)" href="http://www.baidu.com">百度一下</a>
-      </div>
+      <div class="box" :class="obj"></div>
+      <div class="box" :class="arr"></div>
+      <div class="box" :class="{red:isRed , big : isBig } "></div>
     </div>
     <script src="./vue.js"></script>
     <script>
       const vm = new Vue({
         el: '#app',
-        data: {},
-        methods: {
-          fatherFn() {
-            alert('father')
+        data: {
+          obj: {
+            red: true,
+            big: true,
           },
-          sonFn(e) {
-            e.stopPropagation()
-            e.preventDefault()
-            alert('son')
-          },
+          arr: ['red', 'big'],
+          isRed: false,
+          isBig: true,
         },
       })
     </script>

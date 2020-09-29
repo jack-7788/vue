@@ -7,22 +7,21 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="btnFn">按钮</button>
-      <img v-bind:src="imgSrc" v-bind:alt="imgAlt" v-bind:title="imgTitle" />
+      <p>{{msg}}</p>
+      <p>{{reverse}}</p>
     </div>
+
+    <div id="app"></div>
     <script src="./vue.js"></script>
     <script>
       const vm = new Vue({
         el: '#app',
         data: {
-          imgSrc: './01.jpg',
-          imgTitle: '一只狗',
-          imgAlt: '图破了',
+          msg: 'hello',
         },
-        methods: {
-          btnFn() {
-            console.log(this === vm)
-            this.imgSrc = './00.gif'
+        computed: {
+          reverse() {
+            return this.msg.toUpperCase()
           },
         },
       })

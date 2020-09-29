@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      文本框：<input type="text" v-model="uname" /><br />
+
+      密码框：<input type="password" v-model="pwd" /><br />
+      <select name="" id="" v-model="hobby">
+        <option value="苹果">苹果</option>
+        <option value="柿子">柿子</option>
+        <option value="橘子">橘子</option>
+        <option value="香蕉">香蕉</option>
+      </select>
+      <hr />
+      男：<input
+        type="radio"
+        name=""
+        id=""
+        v-model="gender"
+        value="man"
+      /><br />
+      <hr />
+      女：<input
+        type="radio"
+        name=""
+        id=""
+        v-model="gender"
+        value="women"
+      /><br />
+      <hr />
+      香蕉：<input type="checkbox" name="" id="" v-model="hobby" value="香蕉" />
+      <br />
+      苹果：<input type="checkbox" name="" id="" v-model="hobby" value="苹果" />
+      <br />
+      梨子：<input type="checkbox" name="" id="" v-model="hobby" value="梨子" />
+      <br />
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          uname: 'zs',
+          gender: 'women',
+          pwd: '123',
+          hobby: ['苹果', '梨子'],
+        },
+      })
+    </script>
+  </body>
+</html>
