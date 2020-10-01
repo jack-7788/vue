@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- axios的简写形式 -->
+    <script src="./axios.js"></script>
+    <script>
+      // get 不带参数
+      /*   axios.get('http://localhost:3000/list').then((res) => {
+          console.log(res.data)
+        }) */
+      // get带参数一
+      /*     axios
+          .get('http://localhost:3000/list', {
+            params: {
+              name_like: '三',
+            },
+          })
+          .then((res) => {
+            console.log(res.data)
+          }) */
+      // get 带参数二
+      /*   axios.get('http://localhost:3000/list?name_like=三').then((res) => {
+          console.log(res.data)
+        }) */
+      /*   // delete 删除指令
+        axios.delete('http://localhost:3000/list/9').then((res) => {
+          console.log(res.data)
+        }) */
+      // put指令
+      /*      axios
+        .put('http://localhost:3000/list/9', {
+          name: 999,
+          price: 111111,
+        })
+        .then((res) => {
+          console.log(res.data)
+        }) */
+      axios
+        .patch('http://localhost:3000/list/7', {
+          price: 0909,
+        })
+        .then((res) => {
+          console.log(res.data)
+        })
+    </script>
+  </body>
+</html>

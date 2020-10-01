@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./axios.js"></script>
+    <script>
+      // get 请求不带数据
+      /*    axios({
+          method: 'get',
+          url: 'http://localhost:3000/list',
+        }).then((res) => {
+          console.log(res.data)
+        }) */
+      // get请求带数据
+      /*  axios({
+        method: 'get',
+        url: 'http://localhost:3000/list?name_like  =三',
+      }).then((res) => {
+        console.log(res.data)
+      }) */
+      axios({
+        method: 'get',
+        url: 'http://localhost:3000/list/1',
+      }).then((res) => {
+        console.log(res.data)
+      })
+      // post
+      /*      axios({
+        method: 'post',
+        url: 'http://localhost:3000/list',
+        data: {
+          name: '三字',
+          price: '1000',
+        },
+      }).then((res) => {
+        console.log(res.data)
+      })
+       */
+      /*   axios({
+        method: 'post',
+        url: 'http://localhost:3000/list',
+        data: {
+          name: '三字经',
+          price: '111',
+        },
+      }).then((res) => {
+        console.log('ok')
+      })
+ */
+      // put是全部替换
+      /*   axios({
+        method: 'put',
+        url: 'http://localhost:3000/list/9',
+        data: {
+          name: 111,
+          price: 222,
+        },
+      }).then((res) => {
+        console.log(res.data)
+      }) */
+      /*       axios({
+        method: 'patch',
+        url: 'http://localhost:3000/list/9',
+        data: {
+          name: 777,
+        },
+      }).then((res) => {
+        console.log(res.data)
+      })
+ */
+      /*     axios({
+        method: 'delete',
+        url: 'http://localhost:3000/list/9',
+      }).then((res) => {
+        console.log('删除ok')
+      }) */
+    </script>
+  </body>
+</html>
