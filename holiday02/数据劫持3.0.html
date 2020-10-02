@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = {
+        msg: 'zs',
+        age: 12,
+      }
+      const obj = new Proxy(data, {
+        get(target, key) {
+          console.log('get操作')
+          return target[key]
+        },
+        set(target, key, value) {
+          console.log('set操作')
+          target[key] = value
+        },
+      })
+      obj.info = 11
+      console.log(obj.msg)
+    </script>
+  </body>
+</html>

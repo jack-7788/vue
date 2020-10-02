@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <p></p>
+    <script>
+      const data = {
+        msg: 'zs',
+        age: 18,
+      }
+      const input = document.querySelector('input')
+      const p = document.querySelector('p')
+      input.value = data.msg
+      p.innerHTML = data.msg
+      // 视图改了，data修改
+      input.addEventListener('input', function () {
+        data.msg = input.value
+      })
+      // data改了，视图改
+      let temp = data.msg
+      Object.defineProperty(data, 'msg', {
+        get() {
+          console.log('get操作')
+          return temp
+        },
+        set(value) {
+          console.log('set操作')
+          temp = value
+          p.innerHTML = data.msg
+          input.value = data.msg
+        },
+      })
+
+      console.log(data.msg)
+    </script>
+  </body>
+</html>
