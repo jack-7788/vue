@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        background-color: red;
+        height: 300px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p v-bind:class="{ red:true }">{{ msg }}</p>
+      <hr />
+      <p v-bind:class="obj">{{ msg }}</p>
+      <hr />
+      <p v-bind:class="['red']">{{ msg }}</p>
+      <hr />
+      <p v-bind:class="arr">{{ msg+1 }}</p>
+      <hr />
+      <p v-bind:style="{ height:'900px' , backgroundColor:'pink'}">
+        {{ msg + 2 }}
+      </p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          obj: {
+            red: true,
+          },
+          arr: ['red'],
+        },
+      })
+    </script>
+  </body>
+</html>

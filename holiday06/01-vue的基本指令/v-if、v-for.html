@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="true">11</p>
+      <p v-if="false">22</p>
+      <p v-show="false">33</p>
+      <p v-show="true">44</p>
+      <p></p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+      })
+    </script>
+  </body>
+</html>

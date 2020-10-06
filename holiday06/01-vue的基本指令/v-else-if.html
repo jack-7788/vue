@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="score > 70">及格</p>
+      <p v-else-if="score > 60">刚刚及格</p>
+      <p v-else-if="score === 60">60分</p>
+      <!-- <p v-else-if="score = 60">60 分</p> -->
+      <p v-else>不及格</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          score: 61,
+        },
+      })
+    </script>
+  </body>
+</html>
