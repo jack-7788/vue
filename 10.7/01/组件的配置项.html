@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <demo></demo>
+      <demo></demo>
+      <demo></demo>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const obj = {
+        count: 0,
+      }
+      Vue.component('demo', {
+        template: `
+       <div>
+        <p> {{ count }}  </p>
+        <button @click='add' > 按钮</button>
+       </div>
+      `,
+        data() {
+          /*  return {
+            count: 0,
+          } */
+          return obj
+        },
+        methods: {
+          add() {
+            return this.count++
+          },
+        },
+      })
+      const vm = new Vue({
+        el: '#app',
+        data: {},
+      })
+    </script>
+  </body>
+</html>

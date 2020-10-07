@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ price | money1 }}
+      <hr />
+      {{ price | money2 }}
+      <hr />
+      <br />
+      <input v-focus type="text" />
+      <hr />
+      <input v-focus1 type="text" />
+      <hr />
+      <br />
+      <demo></demo>
+      <hr />
+      <br />
+      <demo2></demo2>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      //全局过滤器
+      Vue.filter('money1', function (value) {
+        return '$' + value
+      })
+      //自定义指令
+      Vue.directive('focus', {
+        inserted(el) {
+          el.focus()
+        },
+      })
+      // 全局组件
+      Vue.component('demo', {
+        template: `
+        <div>全局组件</div>
+        `,
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          price: 100,
+        },
+        //局部过滤器
+        filters: {
+          money2(value) {
+            return '￥' + value
+          },
+        },
+        //局部指令
+        directives: {
+          focus1: {
+            inserted(el) {
+              el.focus()
+            },
+          },
+        },
+        // 局部指令
+        components: {
+          demo2: {
+            template: `
+            <div>222222</div>
+            `,
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

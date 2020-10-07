@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <el-global></el-global>
+      <hello></hello>
+    </div>
+    <div id="app2">
+      <el-global></el-global>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      Vue.component('el-global', {
+        template: ` 
+         <div>1
+         {{ msg }} 
+         <hr/>
+         <p> {{ name | name }} </p> 
+         </div> 
+         `,
+        data() {
+          return {
+            msg: '全局组件',
+            name: 'zs',
+          }
+        },
+      })
+      Vue.filter('name', function (value) {
+        return '$' + value
+      })
+      const vm = new Vue({
+        el: '#app',
+        components: {
+          hello: {
+            template: ` 
+            <div>
+              <hr/>
+                <p>局部组件</p> 
+              <hr/>
+            </div> `,
+          },
+        },
+      })
+      const vm2 = new Vue({
+        el: '#app2',
+      })
+    </script>
+  </body>
+</html>

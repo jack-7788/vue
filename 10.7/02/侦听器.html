@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ obj.num }}</p>
+      <button @click="add">点击</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          obj: {
+            num: 1,
+          },
+        },
+        methods: {
+          add() {
+            return this.obj.num++
+          },
+        },
+        watch: {
+          num(newValue) {
+            console.log('改变后', newValue)
+          },
+          obj: {
+            deep: true,
+            handler(newValue) {
+              console.log('新值', newValue)
+            },
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ obj.age }}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'zs',
+          obj: {
+            age: 19,
+            name: 'ls',
+          },
+        },
+        watch: {
+          // msg() {
+          //   console.log('改变了')
+          // },
+          // 'obj.age': function (newValue) {
+          //   console.log('obj.age新数据' + newValue)
+          // },
+
+          /*      obj: {
+                 deep: true,
+                 // 处理函数, obj变化了, 需要执行的函数
+                 handler(newValue) {
+                   console.log('obj被修改了', newValue)
+                 },
+               },
+      */
+          obj: {
+            deep: true,
+            handler(newValue) {
+              console.log('改变后', newValue)
+            },
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

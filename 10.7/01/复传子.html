@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        height: 400px;
+        width: 400px;
+        background-color: pink;
+      }
+      .son {
+        height: 100px;
+        width: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <el-son :title="title" :content="content"></el-son>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      Vue.component('el-son', {
+        template: `
+        <div class="son">
+          {{ title }}
+          {{ content }}
+        
+        
+          </div>
+        `,
+        props: ['title', 'content'],
+      })
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          title: '静夜思',
+          content: '窗前明月光，疑是地上霜',
+          house: '新疆海景房',
+        },
+      })
+    </script>
+  </body>
+</html>
